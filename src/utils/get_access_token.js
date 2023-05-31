@@ -1,14 +1,14 @@
 import got from 'got';
-import { Redis } from 'ioredis';
-import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
-const result = dotenv.config({ debug: true });
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+const result = dotenv.config({ debug: false });
 if (result.error) throw result.error;
-// console.error('[WAGOT]:.env', result);
-let { WEAPP_APPID, WEAPP_SECRET, REDIS_URI } = result.parsed;
-if (!REDIS_URI) throw new Error('[WAGOT]:未定义redis连接');
+let { WEAPP_APPID, WEAPP_SECRET } = result.parsed;
 if (!WEAPP_APPID || !WEAPP_SECRET) throw new Error('[WAGOT]:未定义小程序信息');
+
 const ACCESS_TOKEN_KEY = `weapp_access_token_${WEAPP_APPID}`;
+
+import redis from 'gb-redis';
 
 // 定义拦截器
 export default async function getAccessToken(options) {
@@ -17,7 +17,7 @@ export default async function getAccessToken(options) {
   /** @const {string} - 判断是否第三方，若appid存在，使用第三方token */
   const appid = options.context.appid;
   if (appid) return;
-  const redis = new Redis(REDIS_URI);
+  // const redis = new Redis(REDIS_URI);
   let access_token = await redis.get(ACCESS_TOKEN_KEY);
   if (access_token) return options.searchParams.set('access_token', access_token);
   // 否则重新获取 access_token

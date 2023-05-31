@@ -45,7 +45,10 @@ export async function getQRCode(json) {
  * @param {boolean} [json.autoColor=false] - 自动配置线条颜色，如果颜色依然是黑色，则说明不建议配置主色调，默认 false
  * @param {object} [json.lineColor={"r":0,"g":0,"b":0}] - autoColor 为 false 时生效，使用 rgb 设置颜色，例如 {"r":"xxx","g":"xxx","b":"xxx"} 十进制表示
  * @param {boolean} [json.isHyaline=false] - 是否需要透明底色，为 true 时，生成透明底色的小程序
- * @returns {Promise<{ "errcode": number, "errmsg": string, "contentType": string, "buffer": Buffer}>} 图片 Buffer
+ * @returns {Promise<RETURN_DATA | Buffer>} 图片 Buffer
+ * @typedef {object} RETURN_DATA
+ * @prop {number} errcode
+ * @prop {string} errmsg
  * @throws {Error} 如果请求失败，会抛出异常
  * @example
  * {
@@ -67,8 +70,8 @@ export async function getQRCode(json) {
  */
 export async function getUnlimitedQRCode(json) {
   let { body } = await waGot.post('wxa/getwxacodeunlimit', { json, responseType: 'buffer' });
-  body = body.toString();
-  if (body.includes('errmsg')) return JSON.parse(body);
+  // body = body.toString();
+  // if (body.includes('errmsg')) return JSON.parse(body);
   return body;
 }
 /**

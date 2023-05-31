@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import * as dotenv from 'dotenv';
 
-const result = dotenv.config({ debug: true });
+const result = dotenv.config({ debug: false });
 if (result.error) throw result.error;
 let { WEAPP_APPID, WEAPP_SECRET } = result.parsed;
 if (!WEAPP_APPID || !WEAPP_SECRET) throw new Error('[WAGOT]:未定义小程序信息');

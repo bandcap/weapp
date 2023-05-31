@@ -1,14 +1,14 @@
 {
-  "name": "@wohugb/weapp",
-  "version": "1.0.0",
-  "description": "weapp api v3",
+  "name": "gb-weapp",
+  "version": "1.0.3",
+  "description": "微信小程序 api 接口",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wohugb/weapp.git"
+    "url": "git+https://github.com/bandcap/weapp.git"
   },
   "keywords": [
     "weapp"
@@ -16,17 +16,12 @@
   "author": "BandCamp",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wohugb/weapp/issues"
+    "url": "https://github.com/bandcap/weapp/issues"
   },
-  "homepage": "https://github.com/wohugb/weapp#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "homepage": "https://github.com/bandcap/weapp#readme",
   "dependencies": {
-    "got": "^10.7.0",
-    "lowdb": "^1.0.0",
-    "moment": "^2.24.0",
-    "query-string": "^6.12.0"
+    "got": "^12.6.0",
+    "gb-redis": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.5",
