@@ -1,29 +1,29 @@
 /**
  * @author Band Cap <wohugb@qq.com>
- * @version 1.0.1
+ * @version 1.0.3
  */
-import * as ad from './src/ad.js';
-import * as ai from './src/ai.js';
-import * as custom from './src/custom.js';
-import * as datacube from './src/datacube.js';
-import * as device from './src/device.js';
-import * as devop from './src/devop.js';
-import * as express from './src/express.js';
-import * as guard from './src/guard.js';
-import * as link from './src/link.js'; // 小程序二维码
-import * as qrcode from './src/qrcode.js'; // 公号二维码
-import * as live from './src/live.js';
-import * as manager from './src/manager.js';
-import * as media from './src/media.js';
-import * as message from './src/message.js';
-import * as order from './src/order.js';
-import * as plugin from './src/plugin.js';
-import * as poi from './src/poi.js';
-import * as redpacket from './src/redpacket.js';
-import * as safe from './src/safe.js';
-import * as soter from './src/soter.js';
-import * as user from './src/user.js';
-import Crypto from './src/crypto.js';
+import * as ad from "./src/ad.js";
+import * as ai from "./src/ai.js";
+import * as custom from "./src/custom.js";
+import * as datacube from "./src/datacube.js";
+import * as device from "./src/device.js";
+import * as devop from "./src/devop.js";
+import * as express from "./src/express.js";
+import * as guard from "./src/guard.js";
+import * as link from "./src/link.js"; // 小程序二维码
+import * as qrcode from "./src/qrcode.js"; // 公号二维码
+import * as live from "./src/live.js";
+import * as manager from "./src/manager.js";
+import * as media from "./src/media.js";
+import * as message from "./src/message.js";
+import * as order from "./src/order.js";
+import * as plugin from "./src/plugin.js";
+import * as poi from "./src/poi.js";
+import * as redpacket from "./src/redpacket.js";
+import * as safe from "./src/safe.js";
+import * as soter from "./src/soter.js";
+import * as user from "./src/user.js";
+import Crypto from "./src/crypto.js";
 
 class weappApis {
   static ad = ad; //广告

@@ -1,10 +1,10 @@
-import * as dotenv from "dotenv";
-import waGot from "./utils/wa-got.js";
+import * as dotenv from 'dotenv';
+import waGot from './utils/wa-got.js';
 
 const result = dotenv.config({ debug: false });
 if (result.error) throw result.error;
 let { WEAPP_APPID, WEAPP_SECRET } = result.parsed;
-if (!WEAPP_APPID || !WEAPP_SECRET) throw new Error("[WAGOT]:未定义小程序信息");
+if (!WEAPP_APPID || !WEAPP_SECRET) throw new Error('[WAGOT]:未定义小程序信息');
 /**
  * 小程序登录
  * 登录凭证校验。通过 wx.login 接口获得临时登录凭证 code 后传到开发者服务器调用此接口完成登录流程。更多使用方法详见小程序登录。
@@ -18,12 +18,7 @@ if (!WEAPP_APPID || !WEAPP_SECRET) throw new Error("[WAGOT]:未定义小程序�
 export async function code2Session(js_code) {
   let body = await waGot
     .get(`sns/jscode2session`, {
-      searchParams: {
-        appid: WEAPP_APPID,
-        secret: WEAPP_SECRET,
-        js_code,
-        grant_type: "authorization_code",
-      },
+      searchParams: { appid: WEAPP_APPID, secret: WEAPP_SECRET, js_code, grant_type: 'authorization_code' },
     })
     .json();
   return body;
@@ -46,9 +41,7 @@ export async function getpluginopenpid(code) {
  * @returns
  */
 export async function checkencryptedmsg(encrypted_msg_hash) {
-  let { body } = await waGot.post(`wxa/business/checkencryptedmsg`, {
-    json: { encrypted_msg_hash },
-  });
+  let { body } = await waGot.post(`wxa/business/checkencryptedmsg`, { json: { encrypted_msg_hash } });
   return body;
 }
 /**
@@ -89,8 +82,6 @@ export async function getuserencryptkey(json) {
  * @returns
  */
 export async function getuserphonenumber(code) {
-  let { body } = await waGot.post(`wxa/business/getuserphonenumber`, {
-    json: { code },
-  });
+  let { body } = await waGot.post(`wxa/business/getuserphonenumber`, { json: { code } });
   return body;
 }

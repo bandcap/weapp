@@ -1,6 +1,6 @@
 {
   "name": "gb-weapp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "微信小程序 api 接口",
   "main": "src/index.js",
   "scripts": {
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/bandcap/weapp#readme",
   "dependencies": {
-    "got": "^12.6.0"
+    "got": "^12.6.0",
+    "gb-redis": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.5",
